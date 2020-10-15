@@ -1,0 +1,6 @@
+export enum POINT_ON_EDGE_INDICATORS {
+  NOT_ON_EDGE = 0,
+  ON_EDGE = 1,
+  ON_VERTEX = 2,
+  ON_SAME_SLOPE = 3
+}
