@@ -66,11 +66,11 @@ export function Test_Rect_Containment() {
   const result6 = rectContains(rec1, rec7);
   const result7 = rectContains(rec1, rec8);
 
-  console.assert(result1 == true, '1. Rectangles expected is ' + result1);
-  console.assert(result2 == true, '2. Rectangles expected is ' + result2);
-  console.assert(result3 == true, '3. Rectangles expected is ' + result3);
-  console.assert(result4 == true, '4. Rectangles expected is ' + result4);
-  console.assert(result5 == true, '5. Rectangles expected is ' + result5);
+  console.assert(result1 == false, '1. Rectangles expected is ' + result1);
+  console.assert(result2 == false, '2. Rectangles expected is ' + result2);
+  console.assert(result3 == false, '3. Rectangles expected is ' + result3);
+  console.assert(result4 == false, '4. Rectangles expected is ' + result4);
+  console.assert(result5 == false, '5. Rectangles expected is ' + result5);
   console.assert(result6 == true, '6. Rectangles expected is ' + result6);
   console.assert(result7 == true, '7. Rectangles expected is ' + result7);
 }

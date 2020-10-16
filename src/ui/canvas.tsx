@@ -6,8 +6,22 @@ import { Triangle } from "../logic/objects/Triangle";
 
 let stage: HTMLCanvasElement;
 let context: CanvasRenderingContext2D;
-
 let objects: Array<Rectangle | Point | Triangle> = [];
+
+const showObjects = {
+  triangle: false,
+  points: true,
+  rect: true
+}
+
+export function changeEntityView(entity: 'triangle' | 'points' | 'rect', status: boolean) {
+  showObjects[entity] = status;
+}
+
+export function getEntityView(entity: 'triangle' | 'points' | 'rect') {
+  return showObjects[entity];
+}
+
 
 export function addToStage(object: Rectangle | Point | Triangle ) {
   objects.push(object);
@@ -25,6 +39,11 @@ export function draw() {
   context.clearRect(0, 0, stage.width, stage.height);
   for (let o of objects) {
     if (o instanceof Triangle) { 
+
+      if (!showObjects.triangle) {
+        continue
+      }
+
       const { A, B, C } = o;
       context.save();
       context.beginPath();
@@ -42,6 +61,9 @@ export function draw() {
     }
     
     if (o instanceof Rectangle) {
+      if (!showObjects.rect) {
+        continue
+      }
       const { A, B, C, D } = o;
       context.beginPath();
       context.strokeStyle = '#000000';
@@ -58,11 +80,16 @@ export function draw() {
     }
 
     if (o instanceof Point) {
+      if (!showObjects.points) {
+        continue
+      }
+      context.save();
       context.beginPath();
       context.arc(o.X, o.Y, 2, 0, 2 * Math.PI);
-      // context.fillText(o.toString(), o.X - 5, o.Y - 5);
+      if (o.Type == "intersection") context.fillStyle = '#ff0000';
       context.fill();
       context.closePath();
+      context.restore();
     }
   }
 }

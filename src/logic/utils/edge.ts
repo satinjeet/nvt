@@ -41,7 +41,8 @@ export function find_intersection(A: Point, B: Point, X: Point, Y: Point) {
   
   const intersection_point = new Point(
     A.X + (t * s10_x),
-    A.Y + (t * s10_y)
+    A.Y + (t * s10_y),
+    "intersection"
   );
 
   return intersection_point;

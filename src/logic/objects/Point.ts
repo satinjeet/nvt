@@ -4,12 +4,17 @@ import { addToStage } from "../../ui/canvas";
 const { abs, round, sqrt, pow } = Math;
 
 export class Point {
-  constructor(private x: number, private y: number) {
+  constructor(
+    private x: number,
+    private y: number,
+    private type: "intersection" | "regular" = "regular"
+  ) {
     addToStage(this);
   }
 
   get X(): number { return this.x }
   get Y(): number { return this.y }
+  get Type(): "intersection" | "regular" { return this.type }
   
   distanceTo(pt: Point) {
 
