@@ -47,7 +47,7 @@ export function draw() {
       const { A, B, C } = o;
       context.save();
       context.beginPath();
-      context.globalAlpha = 0.1;
+      context.globalAlpha = 0.5;
       context.strokeStyle = '#FF0000';
       context.moveTo(A.X, A.Y);
       context.lineTo(B.X, B.Y);
