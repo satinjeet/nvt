@@ -6,7 +6,7 @@ import { addToStage } from "../ui/canvas";
 
 const { ON_EDGE, ON_SAME_SLOPE, ON_VERTEX } = POINT_ON_EDGE_INDICATORS;
 
-export function doRectanglesIntersect(r1: Rectangle, r2: Rectangle): boolean | Array<Point> {
+export function doRectanglesIntersect(r1: Rectangle, r2: Rectangle): Array<Point> {
 
   if (rectContains(r1, r2)) {
     return [];

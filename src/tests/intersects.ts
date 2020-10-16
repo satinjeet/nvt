@@ -38,7 +38,15 @@ export function Test_Intersections() {
     new Point(250, 700),
   );
 
-  doRectanglesIntersect(rec1, rec2);
-  doRectanglesIntersect(rec1, rec3);
-  doRectanglesIntersect(rect5, rect6);
+  const intersections1 = doRectanglesIntersect(rec1, rec2);
+  const intersections2 = doRectanglesIntersect(rec1, rec3);
+  const intersections3 = doRectanglesIntersect(rect5, rect6);
+
+  console.log(intersections1);
+  console.log(intersections2);
+  console.log(intersections3);
+
+  console.assert(intersections1 instanceof Array && intersections1.length == 2, `1. Intersection between ${rec1} and ${rec2} is not a set of points, they do not intersect`);
+  console.assert(intersections2 instanceof Array && intersections2.length == 2, `2. Intersection between ${rec1} and ${rec3} is not a set of points, they do not intersect`);
+  console.assert(intersections3 instanceof Array && intersections3.length == 2, `3. Intersection between ${rect5} and ${rect6} is not a set of points, they do not intersect`);
 }
